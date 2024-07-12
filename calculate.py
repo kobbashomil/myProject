@@ -1,93 +1,49 @@
 from tkinter import *
-import time
-root= Tk()
-root.geometry('450x600+200+200')
-root.config(background='#1CA994')
+#========= window =========
+win=Tk()
+win.geometry('300x450+200+200')
+win.config(background='#1CA994')
 
-number1=StringVar()
-number2=StringVar()
-number3=StringVar()
-number4=StringVar()
-number5=StringVar()
-
-def get_time():
-    ct=time.ctime()
-    return ct
-
-citytime =Label(root,font=('times',15,'bold'),text=get_time())
-citytime.place(x=120,y=15)
-
-#================================def===================================
-def calculate():
-   n1=float(number1.get())
-   c1=n1/3
-   c2=n1*1.5
-   c3=n1*1.3
-   c4=n1*1.1
-   number2.set(c1)
-   number3.set(c2)
-   number4.set(c3)
-   number5.set(c4)
-   
-   
-
-
-
-#===================== current========================================
-current=Label(root,font=('times',15,'bold'),text='current',bg='#1CA994')
-current.place(x=40,y=100)
-
-value1=Entry(root,font=('times',15,'bold'),bd=4,bg='yellow',textvariable=number1)
-value1.place(x=200,y=100)
-
-#========================================SizeWire=======================
-SizeWire=Label(root,font=('times',15,'bold'),text='SizeWire',bg='#1CA994')
-SizeWire.place(x=40,y=150)
-
-
-value2=Entry(root,font=('times',15,'bold'),bd=4,bg='yellow',textvariable=number2)
-value2.place(x=200,y=150)
-
-#===============================CurrentContactor====================================
-CurrentContactor=Label(root,font=('times',15,'bold'),text='currentContactor',bg='#1CA994')
-CurrentContactor.place(x=40,y=200)
+#========== Entry ===========
+count=Entry(win,bg='orange',font=('',14,''))
+count.pack()
+#===============Button =================
+no1=Button(win,width='3',height='2',text='1',font=('',14,''),bg='yellow',set)
+no1.place(x=10,y=150)
+no2=Button(win,width='3',height='2',text='2',font=('',14,''),bg='yellow')
+no2.place(x=55,y=150)
+no3=Button(win,width='3',height='2',text='3',font=('',14,''),bg='yellow')
+no3.place(x=100,y=150)
+no4=Button(win,width='3',height='2',text='4',font=('',14,''),bg='yellow')
+no4.place(x=145,y=150)
+no5=Button(win,width='3',height='2',text='5',font=('',14,''),bg='yellow')
+no5.place(x=190,y=150)
+no6=Button(win,width='3',height='2',text='6',font=('',14,''),bg='yellow')
+no6.place(x=10,y=213)
+no7=Button(win,width='3',height='2',text='7',font=('',14,''),bg='yellow')
+no7.place(x=55,y=213)
+no8=Button(win,width='3',height='2',text='8',font=('',14,''),bg='yellow')
+no8.place(x=100,y=213)
+no9=Button(win,width='3',height='2',text='9',font=('',14,''),bg='yellow')
+no9.place(x=145,y=213)
+no0=Button(win,width='3',height='2',text='0',font=('',14,''),bg='yellow')
+no0.place(x=190,y=213)
+#========= FX =================
+pluse=Button(win,width='3',height='2',text='+',font=('',14,''),bg='red')
+pluse.place(x=235,y=151)
+minuse=Button(win,width='3',height='2',text='-',font=('',14,''),bg='red')
+minuse.place(x=235,y=214)
+mltple=Button(win,width='3',height='2',text='x',font=('',14,''),bg='red')
+mltple.place(x=235,y=277)
+div=Button(win,width='3',height='2',text='/',font=('',14,''),bg='red')
+div.place(x=235,y=342)
+#========== floot=============
+point=Button(win,width='5',height='5',text='.',font=('',14,''),bg='red')
+point.place(x=168,y=276)
+#============ equale ================
+point=Button(win,width='8',height='3',text='=',font=('',22,''),bg='red')
+point.place(x=10,y=276)
 
 
-
-value3=Entry(root,font=('times',15,'bold'),bd=4,bg='yellow',textvariable=number3)
-value3.place(x=200,y=200)
-
-
-
-#==========================CircuitBreaker=========================================
-
-circuitBrecker=Label(root,font=('times',15,'bold'),text='circuitBrecker',bg='#1CA994')
-circuitBrecker.place(x=40,y=250)
-
-
-
-value4=Entry(root,font=('times',15,'bold'),bd=4,bg='yellow',textvariable=number4)
-value4.place(x=200,y=250)
-
-
-#=========================CurrentOverLoad============================================
-
-CurrentOverLoad=Label(root,font=('times',15,'bold'),text='CurrentOverLoad',bg='#1CA994')
-CurrentOverLoad.place(x=40,y=300)
-
-
-
-
-value5=Entry(root,font=('times',15,'bold'),bd=4,bg='yellow',textvariable=number5)
-value5.place(x=200,y=300)
-
-
-#=====================================buttom====================================
-
-Butt=Button(root,width=8,padx=2,pady=2,bd=4,text='calculate',command=calculate )
-Butt.place(x=200,y=400) 
-
-
-
-
-root.mainloop()
+#========== END =============
+win.mainloop()
