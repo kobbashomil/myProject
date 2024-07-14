@@ -1,28 +1,43 @@
 #========= calculator python ====
 from tkinter import *
+
+#========= def ===================
+def click(number):# insert data
+     
+    global equation_text
+    equation_text = equation_text + str(number)
+    click_entry.set(equation_text)           
+def clear():  # clear screen
+    global equation_text
+    equation_text=""
+    click_entry.set(equation_text)
+def equale(): # result opertor
+    global equation_text
+    try:
+       total=eval(equation_text)
+       click_entry.set(total)
+       #equation_text=total
+    except SyntaxError:
+        click_entry.set("SystemError")
+        #equation_text=""  
+    except ZeroDivisionError:
+        click_entry.set("arithmetic error")  
+        equation_text=""  
+#===== window ==========
 win= Tk()
 win.geometry('300x400')
 win.resizable(0,0)
 win.title('calculoter')
 win.config(bg='#1CA994')
 #===== Entry ====
-screen=Entry(win,bd=10,font='arial 21',width=30,bg='lightgrey')
+equation_text= ""
+click_entry=StringVar()
+screen=Entry(win,bd=10,font='arial 21',width=30,bg='lightgrey',textvariable=click_entry)
 screen.pack()
-#========= def ===================
-def click(number):
-    screen.insert(32,number)                  
-def add():
-    screen.insert(32,"+")                  
-def clear():
-    screen.delete(0,END)
-def equale():
-    current=screen.get() 
-    list=current.split("+")
-    a=int(list[0])
-    b=int(list[1])
-    result=lambda a,b:a+b
-    clear()
-    screen.insert(32,result(a,b))                                     
+#=========variable ==========
+
+
+                                     
 #==== button ============
 n1=Button(win,text='1',font='arial 19 bold',bg='grey',bd=10,padx=10,pady=5,command=lambda:click(1))
 n1.place(x=10,y=60)
@@ -45,13 +60,13 @@ n9.place(x=160,y=230)
 n0=Button(win,text='0',font='arial 19 bold',bg='grey',bd=10,padx=10,pady=5,command=lambda:click(0))
 n0.place(x=10,y=315)
 #========== fx =============
-pluse=Button(win,text='+',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5,command=add)
+pluse=Button(win,text='+',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5,command=lambda:click('+'))
 pluse.place(x=235,y=60)
-minus=Button(win,text='-',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5)
+minus=Button(win,text='-',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5,command=lambda:click('-'))
 minus.place(x=235,y=145)
-milti=Button(win,text='*',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5)
+milti=Button(win,text='*',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5,command=lambda:click('*'))
 milti.place(x=235,y=230)
-div=Button(win,text='/',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5)
+div=Button(win,text='/',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5,command=lambda:click('/'))
 div.place(x=235,y=315)
 eq=Button(win,text='=',font='arial 19 bold',bg='orange',bd=10,padx=10,pady=5,command=equale)
 eq.place(x=85,y=315)
