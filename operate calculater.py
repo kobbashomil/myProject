@@ -32,7 +32,8 @@ win.config(bg='#1CA994')
 #===== Entry ====
 equation_text= ""
 click_entry=StringVar()
-screen=Entry(win,bd=10,font='arial 21',width=30,bg='lightgrey',textvariable=click_entry)
+screen=Entry(win,bd=10,font='arial 21',width=30,
+bg='lightgrey',textvariable=click_entry)
 screen.pack()
 #=========variable ==========
 
