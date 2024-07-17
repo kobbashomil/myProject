@@ -12,10 +12,10 @@ win.tracer(0)
 #s=37
 #=========== creater pin
 pen=turtle.Turtle()
-pen.penup()
-pen.pensize(15)
-pen.color('black')
+#pen.penup()
 pen.speed(0)
+pen.pensize(3)
+#pen.color('black')
 pen.hideturtle()
 #=== drawing clock
 def clock(h,m,s):
@@ -25,8 +25,6 @@ def clock(h,m,s):
    pen.penup()
    pen.pensize(16)
    pen.setposition(0,210)
-   
-
    pen.setheading(180)
    pen.color ("#1AC994","#F6F6F6")
    pen.pendown()
@@ -36,7 +34,7 @@ def clock(h,m,s):
    #==== drawing line for hour
    pen.penup()
    pen.setposition(0,0)
-   pen.color('black')
+   #pen.color('black')
    pen.setheading(90)
    for _ in range(12):
             pen.forward(190)
@@ -49,15 +47,15 @@ def clock(h,m,s):
    #====  hand hour
    pen.color('orange')
    pen.pensize(15)
-   pen.setheading(90)
+   pen.penup()
    pen.setposition(0,0)
-   pen.color('green')
    angle=(h/12) *360
+   pen.setheading(90)
    pen.right(angle)
    pen.pendown()
    pen.forward(100)
    #==== hand minute 
-   
+   pen.color("#4A9609")
    pen.pensize(11)
    pen.setheading(90)
    pen.setposition(0,0)
@@ -67,24 +65,27 @@ def clock(h,m,s):
    pen.forward(130)
    #=== hand second
    pen.color('blue')
-   pen.pensize(13)
+   pen.penup()
+   pen.pensize(10)
    pen.setheading(90)
    pen.setposition(0,0)
    angle=(s/60) *360
    pen.right(angle)
    pen.pendown()
    pen.forward(150)
+
+
 #=== timezone
 while True:
-    h = int(time.strftime("%I"))  # gives us the Hours from 0 -to- 12
-    m = int(time.strftime("%M"))  # gives us the Minutes
-    s = int(time.strftime("%S"))  # gives us the Seconds
+     h = int(time.strftime("%I"))  # gives us the Hours from 0 -to- 12
+     m = int(time.strftime("%M"))  # gives us the Minutes
+     s = int(time.strftime("%S"))  # gives us the Seconds
 
-#====
-pen.clear()
-time.sleep(1)
-clock(h,m,s)
-win.update()
+    #====
+     pen.clear()
+     time.sleep(1)
+     clock(h,m,s)
+     win.update()
 #========  end ==
 
 win.mainloop()
